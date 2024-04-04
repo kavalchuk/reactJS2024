@@ -1,24 +1,34 @@
-class avatar extends React.Component {
-constructor() {
-    this.state={
+import React from "react";
+
+class Avatar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       isAvatarsVisible: false,
-    }
-}
-    handleshowavatars() {
-    this.state.isAvatarsVisible = !this.state.isAvatarsVisible;
-}
+    };
+  }
+
+  handleShowAvatars = () => {
+    this.setState({
+      isAvatarsVisible: !this.state.isAvatarsVisible,
+    });
+  };
+
+  render() {
     return (
-          <button onClick={handleshowavatars()}>Click!!!</button>
-           {if(isAvatarsVisible) {
-               <div>
-                  <div>{this.props.userName}</div>
-                   <img src={props.imageSrc}></img>
-               </div>
-           } else {
-               <div>Here should be list of avatars</div>
-           }
-           }
-           )
+      <>
+        <button onClick={this.handleShowAvatars}>Click!!!</button>
+        {this.state.isAvatarsVisible ? (
+          <div>
+            <div>{this.props.userName}</div>
+            <img src={this.props.imageSrc} alt={this.props.userName}></img>
+          </div>
+        ) : (
+          <div>Here should be list of avatars</div>
+        )}
+      </>
+    );
+  }
 }
 
-export  default avatar;
+export { Avatar };
