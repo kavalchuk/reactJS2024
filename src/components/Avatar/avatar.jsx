@@ -21,7 +21,7 @@ class Avatar extends React.Component {
         {this.state.isAvatarsVisible ? (
           <div>
             <div>{this.props.userName}</div>
-            <img src={this.props.imageSrc}></img>
+            <img src={this.props.imageSrc} alt={this.props.userName}></img>
           </div>
         ) : (
           <div>Here should be list of avatars</div>
